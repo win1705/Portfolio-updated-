@@ -112,7 +112,7 @@ const projects = [
   },
   {
     id: "05",
-    title: "J&C MetalWorks: Full-Stack E-Commerce & Order Tracker",
+    title: "J&C MetalWorks: E-Commerce & Order Tracker",
     role: "Back End & Web Developer | School Project",
     description:
       "A e-commerce and custom fabrication ordering platform powered by Python/Django, featuring PayMongo GCash checkout, Twilio SMS verification, real time order tracking, and a custom Order Management Dashboard.",
