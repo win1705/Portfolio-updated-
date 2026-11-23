@@ -174,6 +174,7 @@ const socialLinks = [
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+
   useEffect(() => {
     if (!selectedProject) return;
     window.history.pushState({ modalOpen: true }, "");
@@ -265,7 +266,7 @@ export default function App() {
         <section className="py-16 md:py-28 border-b border-zinc-900">
           <div className="grid gap-10 lg:gap-12 lg:grid-cols-12 lg:items-center">
             {/* Profile Picture */}
-            <div className="order-first lg:order-last lg:col-span-5 flex justify-center lg:justify-center">
+            <div className="order-first lg:order-last lg:col-span-5 flex justify-center lg:justify-center animate-fade-up delay-200">
               <div className="relative group">
                 <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-tr from-emerald-500/30 to-zinc-800/30 blur-lg opacity-75 group-hover:opacity-100 transition duration-500"></div>
 
@@ -282,7 +283,7 @@ export default function App() {
 
             {/* Left Column: Main Intro */}
             <div className="lg:col-span-7">
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 font-mono text-xs text-emerald-400">
+              <div className="animate-fade-up mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 font-mono text-xs text-emerald-400">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
@@ -290,17 +291,17 @@ export default function App() {
                 Open for Web Development & IT Support OJT
               </div>
 
-              <p className="font-mono text-sm text-emerald-400 mb-2">$ whoami</p>
+              <p className="animate-fade-up delay-100 font-mono text-sm text-emerald-400 mb-2">$ whoami</p>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-zinc-50">
+              <h1 className="animate-fade-up delay-100 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-zinc-50">
                 Jerwin Brylle M. Zafra
               </h1>
 
-              <h2 className="mt-3 text-xl sm:text-2xl font-medium text-zinc-400">
+              <h2 className="animate-fade-up delay-200 mt-3 text-xl sm:text-2xl font-medium text-zinc-400">
                 Web Development & IT Support <span className="text-emerald-400">|</span> 4th Year BSIT Student
               </h2>
 
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-400">
+              <p className="animate-fade-up delay-300 mt-6 max-w-2xl text-base leading-relaxed text-zinc-400">
                 I build responsive web applications and solve hardware, printer, and operating system issues. Grounded in{" "}
                 <span className="text-zinc-200 font-medium">HTML/CSS</span>,{" "}
                 <span className="text-zinc-200 font-medium">Python/Django</span>, and{" "}
@@ -309,7 +310,7 @@ export default function App() {
                 <span className="text-emerald-400 font-medium">AI-assisted workflows</span> to deliver practical solutions.
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-3.5">
+              <div className="animate-fade-up delay-400 mt-8 flex flex-wrap items-center gap-3.5">
                 <a
                   href="#projects"
                   className="inline-flex items-center gap-2 rounded-lg bg-emerald-400 px-5 py-2.5 text-sm font-semibold text-zinc-950 hover:bg-emerald-300 transition-colors"
@@ -529,13 +530,13 @@ export default function App() {
       {selectedProject && (
         <div
           onClick={() => setSelectedProject(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/85 backdrop-blur-sm px-4 py-8 sm:py-12"
+          className="animate-backdrop-in fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/85 backdrop-blur-sm px-4 py-8 sm:py-12"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative flex max-h-[85vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-zinc-700/80 bg-zinc-900 shadow-2xl"
+            className="animate-modal-in relative flex max-h-[85vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-zinc-700/80 bg-zinc-900 shadow-2xl"
           >
-            {/* Sticky Modal Header Bar (Always visible on mobile & desktop) */}
+            {/* Sticky Modal Header Bar */}
             <div className="flex shrink-0 items-center justify-between border-b border-zinc-800 bg-zinc-950/95 px-4 py-3 sm:px-6">
               <span className="truncate pr-3 font-mono text-xs text-emerald-400">
                 PROJECT_{selectedProject.id} • {selectedProject.role}
@@ -551,7 +552,7 @@ export default function App() {
               </button>
             </div>
 
-            {/* Scrollable Body (Image + Details) */}
+            {/* Scrollable Body */}
             <div className="overflow-y-auto">
               {/* Enlarged Screenshot */}
               <div className="aspect-video w-full overflow-hidden border-b border-zinc-800 bg-zinc-950">
