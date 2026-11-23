@@ -39,7 +39,7 @@ const projects = [
   {
     id: "01",
     title: "J&C MetalWorks — Corporate & Portfolio Website",
-    image: "public/project1.png.jpg",
+    image: "/project1.jpg",
     description:
       "A modern, dark themed corporate website built for J&C Fabrication Inc. featuring an interactive hero image carousel, service offerings, project gallery, client testimonials, leadership profiles, and a dedicated contact page with live social media integration.",
     tech: ["HTML5", "CSS3", "Responsive UI"],
@@ -49,7 +49,7 @@ const projects = [
   {
     id: "02",
     title: "System Management & Ticketing Portal",
-    image: "public/project2.png",
+    image: "/project2.png",
     description:
       "A full stack web management and support ticketing portal built with Node.js and Express, featuring role based access control (User, Admin, Super Admin), real time ticket tracking, and an admin dashboard. Frontend UI preview is live on Vercel, with full backend source code available on GitHub.",
     tech: ["HTML5", "Bootstrap 5", "JavaScript", "Node.js", "Express"],
@@ -59,7 +59,7 @@ const projects = [
   {
     id: "03",
     title: "WorkNest — Coworking Space Finder & Booking Web App",
-    image: "public/project3.png",
+    image: "/project3.png",
     description:
       "A multi page responsive web application built for freelancers and remote workers to discover and reserve coworking spaces, cafés, and libraries. Features user authentication, location based interactive map exploration, workspace category sliders, and a reservation calendar with check-in/check-out scheduling.",
     tech: ["HTML5", "CSS3", "JavaScript", "Google Maps Embed"],
