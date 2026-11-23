@@ -205,7 +205,7 @@ export default function App() {
               </h1>
 
               <h2 className="mt-3 text-xl sm:text-2xl font-medium text-zinc-400">
-                Aspiring Front End Developer <span className="text-emerald-400">|</span> 4th Year BSIT Student
+                Web Development & IT Support <span className="text-emerald-400">|</span> 4th Year BSIT Student
               </h2>
 
               <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-400">
@@ -227,7 +227,7 @@ export default function App() {
                 </a>
 
                 <a
-                  href="/resume.pdf"
+                  href="/Jerwin_Zafra_Updated_OJT_CV.pdf"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-5 py-2.5 text-sm font-medium text-emerald-300 hover:bg-emerald-500/20 transition-colors"
