@@ -38,6 +38,18 @@ const skills = [
 const projects = [
   {
     id: "01",
+    title: "Barangay San Roque Family Tree System",
+    role: "Front-End Developer (UI Contributor)",
+    description:
+      "Capstone project for barangay household profiling, resident verification, and data analytics featuring management dashboards and certificate request workflows.",
+    tech: ["React", "Vite", "Material UI"],
+    image: "/capstone.png",
+    liveUrl: "https://github.com/cdwthmstr/brgy-san-roque-system-preview",
+    githubUrl: "https://github.com/cdwthmstr/brgy-san-roque-system-preview",
+    isShowcase: true, // Optional: kung gusto mong gawing 'View Showcase' ang button text
+  },
+  {
+    id: "02",
     title: "J&C MetalWorks — Corporate & Portfolio Website",
     image: "/project1.jpg",
     description:
@@ -47,7 +59,7 @@ const projects = [
     liveUrl: "https://jc-metalworks.vercel.app/",
   },
   {
-    id: "02",
+    id: "03",
     title: "System Management & Ticketing Portal",
     image: "/project2.png",
     description:
@@ -57,7 +69,7 @@ const projects = [
     liveUrl: "https://system-management-portal.vercel.app/",
   },
   {
-    id: "03",
+    id: "04",
     title: "WorkNest — Coworking Space Finder & Booking Web App",
     image: "/project3.png",
     description:
@@ -65,6 +77,17 @@ const projects = [
     tech: ["HTML5", "CSS3", "JavaScript", "Google Maps Embed"],
     githubUrl: "https://github.com/win1705/WORKNEST",
     liveUrl: "https://worknest-gamma.vercel.app",
+  },
+  {
+    id: "05",
+    title: "Django Web System (In Progress)",
+    role: "Full-Stack Developer",
+    description:
+      "Full-stack web management system with custom Django admin dashboard, database models, and user workflows. Demo and repository details coming soon.",
+    tech: ["Python", "Django", "HTML/CSS", "SQLite"],
+    image: "/coming-soon.png",
+    liveUrl: "#",
+    githubUrl: "#",
   },
 ];
 
