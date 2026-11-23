@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Terminal,
   FolderGit2,
@@ -174,6 +174,15 @@ const socialLinks = [
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  useEffect(() => {
+    if (!selectedProject) return;
+    window.history.pushState({ modalOpen: true }, "");
+    const handlePopState = () => setSelectedProject(null);
+    window.addEventListener("popstate", handlePopState);
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, [selectedProject]);
 
   return (
     <div className="min-h-screen bg-tech-grid text-zinc-100 font-sans selection:bg-emerald-400/20 selection:text-emerald-300">
@@ -520,102 +529,105 @@ export default function App() {
       {selectedProject && (
         <div
           onClick={() => setSelectedProject(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/85 backdrop-blur-sm p-4 overflow-y-auto"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/85 backdrop-blur-sm px-4 py-8 sm:py-12"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 shadow-2xl my-8"
+            className="relative flex max-h-[85vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-zinc-700/80 bg-zinc-900 shadow-2xl"
           >
-            {/* Modal Close Button */}
-            <button
-              type="button"
-              onClick={() => setSelectedProject(null)}
-              aria-label="Close modal"
-              className="absolute right-4 top-4 z-10 rounded-full border border-zinc-700 bg-zinc-950/90 p-2 text-zinc-300 hover:border-emerald-400 hover:text-emerald-400 transition-colors"
-            >
-              <X className="h-5 w-5" />
-            </button>
-
-            {/* Enlarged Screenshot */}
-            <div className="aspect-video w-full overflow-hidden border-b border-zinc-800 bg-zinc-950">
-              <img
-                src={selectedProject.image}
-                alt={selectedProject.title}
-                className="h-full w-full object-cover object-top"
-              />
+            {/* Sticky Modal Header Bar (Always visible on mobile & desktop) */}
+            <div className="flex shrink-0 items-center justify-between border-b border-zinc-800 bg-zinc-950/95 px-4 py-3 sm:px-6">
+              <span className="truncate pr-3 font-mono text-xs text-emerald-400">
+                PROJECT_{selectedProject.id} • {selectedProject.role}
+              </span>
+              <button
+                type="button"
+                onClick={() => setSelectedProject(null)}
+                aria-label="Close modal"
+                className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-1.5 font-mono text-xs text-zinc-200 hover:border-emerald-400 hover:text-emerald-400 transition-colors"
+              >
+                <span>Close</span>
+                <X className="h-4 w-4" />
+              </button>
             </div>
 
-            {/* Modal Content */}
-            <div className="p-6 sm:p-8">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="font-mono text-xs text-emerald-400">
-                  PROJECT_{selectedProject.id} • {selectedProject.role}
-                </span>
+            {/* Scrollable Body (Image + Details) */}
+            <div className="overflow-y-auto">
+              {/* Enlarged Screenshot */}
+              <div className="aspect-video w-full overflow-hidden border-b border-zinc-800 bg-zinc-950">
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  className="h-full w-full object-cover object-top"
+                />
               </div>
 
-              <h3 className="mt-2 text-2xl font-bold text-zinc-50">
-                {selectedProject.title}
-              </h3>
+              {/* Modal Content */}
+              <div className="p-5 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-zinc-50">
+                  {selectedProject.title}
+                </h3>
 
-              <p className="mt-3 text-sm leading-relaxed text-zinc-300">
-                {selectedProject.description}
-              </p>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-300">
+                  {selectedProject.description}
+                </p>
 
-              {selectedProject.highlights && (
-                <div className="mt-5 space-y-2">
-                  <p className="font-mono text-xs uppercase tracking-wider text-emerald-400">
-                    Key Contributions & Features
-                  </p>
-                  <ul className="space-y-2">
-                    {selectedProject.highlights.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-sm text-zinc-400">
-                        <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                {selectedProject.highlights && (
+                  <div className="mt-5 space-y-2">
+                    <p className="font-mono text-xs uppercase tracking-wider text-emerald-400">
+                      Key Contributions & Features
+                    </p>
+                    <ul className="space-y-2">
+                      {selectedProject.highlights.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5 text-sm text-zinc-400">
+                          <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {selectedProject.tech.map((item) => (
+                    <span
+                      key={item}
+                      className="font-mono text-xs text-emerald-300 bg-emerald-400/10 border border-emerald-500/20 px-3 py-1 rounded-md"
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
-              )}
 
-              <div className="mt-6 flex flex-wrap gap-2">
-                {selectedProject.tech.map((item) => (
-                  <span
-                    key={item}
-                    className="font-mono text-xs text-emerald-300 bg-emerald-400/10 border border-emerald-500/20 px-3 py-1 rounded-md"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
+                <div className="mt-8 pt-5 border-t border-zinc-800 flex flex-wrap items-center gap-3">
+                  {selectedProject.liveUrl ? (
+                    <a
+                      href={selectedProject.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-lg bg-emerald-400 px-5 py-2.5 text-sm font-semibold text-zinc-950 hover:bg-emerald-300 transition-colors"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      {selectedProject.liveLabel || "Live Demo"}
+                    </a>
+                  ) : (
+                    <span className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 bg-zinc-800/70 px-4 py-2.5 font-mono text-xs text-zinc-300">
+                      {selectedProject.liveLabel}
+                    </span>
+                  )}
 
-              <div className="mt-8 pt-5 border-t border-zinc-800 flex flex-wrap items-center gap-3">
-                {selectedProject.liveUrl ? (
-                  <a
-                    href={selectedProject.liveUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg bg-emerald-400 px-5 py-2.5 text-sm font-semibold text-zinc-950 hover:bg-emerald-300 transition-colors"
-                  >
-                    <ExternalLink className="h-4 w-4" />
-                    {selectedProject.liveLabel || "Live Demo"}
-                  </a>
-                ) : (
-                  <span className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 bg-zinc-800/70 px-4 py-2.5 font-mono text-xs text-zinc-300">
-                    {selectedProject.liveLabel}
-                  </span>
-                )}
-
-                {selectedProject.githubUrl && (
-                  <a
-                    href={selectedProject.githubUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 bg-zinc-950 px-5 py-2.5 text-sm font-medium text-zinc-200 hover:border-emerald-400/50 hover:text-emerald-300 transition-colors"
-                  >
-                    <Code className="h-4 w-4" />
-                    Source Code
-                  </a>
-                )}
+                  {selectedProject.githubUrl && (
+                    <a
+                      href={selectedProject.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 bg-zinc-950 px-5 py-2.5 text-sm font-medium text-zinc-200 hover:border-emerald-400/50 hover:text-emerald-300 transition-colors"
+                    >
+                      <Code className="h-4 w-4" />
+                      Source Code
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </div>
