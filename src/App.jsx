@@ -67,9 +67,9 @@ const projects = [
     title: "J&C Fabrication Inc.: Corporate & Service Showcase",
     role: "Front-End Web Developer",
     description:
-      "A modern, dark-themed corporate website built for J&C Fabrication Inc. featuring an interactive hero image carousel, service offerings, project gallery, client testimonials, and a dedicated contact page.",
+      "A modern, dark themed corporate website built for J&C Fabrication Inc. featuring an interactive hero image carousel, service offerings, project gallery, client testimonials, and a dedicated contact page.",
     highlights: [
-      "Designed and structured a responsive dark-and-gold interface showcasing custom metal fabrication services and completed client works.",
+      "Designed and structured a responsive dark and gold interface showcasing custom metal fabrication services and completed client works.",
       "Implemented interactive navigation, project galleries, and direct inquiry contact sections.",
     ],
     tech: ["HTML5", "CSS3", "JavaScript", "Responsive UI"],
@@ -81,12 +81,12 @@ const projects = [
   {
     id: "03",
     title: "System Management & Ticketing Portal",
-    role: "Full-Stack Web Developer",
+    role: "Web Developer",
     description:
-      "A full-stack web management and support ticketing portal built with Node.js and Express, featuring role-based access control (User, Admin, Super Admin), real-time ticket tracking, and an admin dashboard.",
+      "A web management and support ticketing portal built with Node.js and Express, featuring role based access control (User, Admin, Super Admin), real time ticket tracking, and an admin dashboard.",
     highlights: [
-      "Implemented multi-level role-based authentication and permission tiers for Users, Admins, and Super Admins.",
-      "Created an interactive admin dashboard for logging resolution notes and updating ticket statuses with real-time user tracking.",
+      "Implemented multi level role based authentication and permission tiers for Users, Admins, and Super Admins.",
+      "Created an interactive admin dashboard for logging resolution notes and updating ticket statuses with real time user tracking.",
     ],
     tech: ["HTML5", "Bootstrap 5", "JavaScript", "Node.js", "Express"],
     image: "/project2.png",
@@ -99,9 +99,9 @@ const projects = [
     title: "WorkNest: Coworking Space Finder & Booking App",
     role: "Lead Web Developer",
     description:
-      "A multi-page responsive web application built for freelancers and remote workers to discover and reserve coworking spaces, cafes, and libraries with interactive map exploration and booking schedules.",
+      "A multi page responsive web application built for freelancers and remote workers to discover and reserve coworking spaces, cafes, and libraries with interactive map exploration and booking schedules.",
     highlights: [
-      "Developed user authentication flows, workspace category filters, and check-in/check-out reservation calendars.",
+      "Developed user authentication flows, workspace category filters, and check in/check out reservation calendars.",
       "Integrated interactive location map views and user rating displays across desktop and mobile viewports.",
     ],
     tech: ["HTML5", "CSS3", "JavaScript", "Google Maps Embed"],
@@ -113,9 +113,9 @@ const projects = [
   {
     id: "05",
     title: "J&C MetalWorks: Full-Stack E-Commerce & Order Tracker",
-    role: "Back-End & Web Developer | School Project",
+    role: "Back End & Web Developer | School Project",
     description:
-      "A full-stack e-commerce and custom fabrication ordering platform powered by Python/Django, featuring PayMongo GCash checkout, Twilio SMS verification, real-time order tracking, and a custom Order Management Dashboard.",
+      "A e-commerce and custom fabrication ordering platform powered by Python/Django, featuring PayMongo GCash checkout, Twilio SMS verification, real time order tracking, and a custom Order Management Dashboard.",
     highlights: [
       "Engineered the Django backend and custom Order Management Dashboard to manage products, custom fabrication inquiries, and order statuses (Paid, Processing, Delivered).",
       "Integrated PayMongo GCash payment workflows and SMS OTP verification alongside customer cart and order tracking views.",
@@ -305,9 +305,9 @@ export default function App() {
                 I build responsive web applications and solve hardware, printer, and operating system issues. Grounded in{" "}
                 <span className="text-zinc-200 font-medium">HTML/CSS</span>,{" "}
                 <span className="text-zinc-200 font-medium">Python/Django</span>, and{" "}
-                <span className="text-zinc-200 font-medium">hands-on PC & printer troubleshooting</span>, while working with{" "}
+                <span className="text-zinc-200 font-medium">hands on PC & printer troubleshooting</span>, while working with{" "}
                 <span className="text-emerald-400 font-medium">React, Tailwind CSS</span>, and{" "}
-                <span className="text-emerald-400 font-medium">AI-assisted workflows</span> to deliver practical solutions.
+                <span className="text-emerald-400 font-medium">AI assisted workflows</span> to deliver practical solutions.
               </p>
 
               <div className="animate-fade-up delay-400 mt-8 flex flex-wrap items-center gap-3.5">
