@@ -291,7 +291,7 @@ export default function App() {
                 Open for Web Development & IT Support OJT
               </div>
 
-              <p className="animate-fade-up delay-100 font-mono text-sm text-emerald-400 mb-2">$ whoami</p>
+              <p className="animate-fade-up delay-100 font-mono text-sm text-emerald-400 mb-2">// Hello, I'm</p>
 
               <h1 className="animate-fade-up delay-100 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-zinc-50">
                 Jerwin Brylle M. Zafra
