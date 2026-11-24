@@ -107,7 +107,7 @@ const projects = [
     tech: ["HTML5", "CSS3", "JavaScript", "Google Maps Embed"],
     image: "/project3.png",
     githubUrl: "https://github.com/win1705/WORKNEST",
-    liveUrl: "https://worknest-gamma.vercel.app",
+    liveUrl: "https://worknest-ph.vercel.app",
     liveLabel: "Live Demo",
   },
   {
@@ -320,7 +320,7 @@ export default function App() {
                 </a>
 
                 <a
-                  href="/Jerwin_Zafra_Updated_OJT_CV.pdf"
+                  href="public/Jerwin_Zafra_Updated_OJT_CV (1).pdf"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-5 py-2.5 text-sm font-medium text-emerald-300 hover:bg-emerald-500/20 transition-colors"
